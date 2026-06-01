@@ -1,13 +1,14 @@
 import YearStamp from './YearStamp';
 
+// Absolute hrefs so the Sections column works from sub-pages too (e.g. /legal).
 const sectionLinks = [
-  { href: '#matchmaker', label: 'Matchmaker' },
-  { href: '#stack', label: 'Capital Stack' },
-  { href: '#sectors', label: 'Sectors' },
-  { href: '#regions', label: 'Regions' },
-  { href: '#private', label: 'Private & ARIA' },
-  { href: '#opportunities', label: 'Live Schemes' },
-  { href: '#calculator', label: 'R&D Calculator' },
+  { href: '/#matchmaker', label: 'Matchmaker' },
+  { href: '/#stack', label: 'Capital Stack' },
+  { href: '/#sectors', label: 'Sectors' },
+  { href: '/#regions', label: 'Regions' },
+  { href: '/#private', label: 'Private & ARIA' },
+  { href: '/#opportunities', label: 'Live Schemes' },
+  { href: '/#calculator', label: 'R&D Calculator' },
 ];
 
 const sourceLinks = [

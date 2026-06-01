@@ -1,20 +1,22 @@
 import ThemeToggle from './ThemeToggle';
 
+// Hrefs are absolute (`/#section`) so they work both from the home page
+// (in-page scroll) AND from sub-pages like /legal (navigate-then-scroll).
 const navLinks = [
-  { href: '#matchmaker', label: 'Match' },
-  { href: '#stack', label: 'Stack' },
-  { href: '#sectors', label: 'Sectors' },
-  { href: '#regions', label: 'Regions' },
-  { href: '#private', label: 'Private' },
-  { href: '#opportunities', label: 'Live' },
-  { href: '#calculator', label: 'R&D Credit' },
+  { href: '/#matchmaker', label: 'Match' },
+  { href: '/#stack', label: 'Stack' },
+  { href: '/#sectors', label: 'Sectors' },
+  { href: '/#regions', label: 'Regions' },
+  { href: '/#private', label: 'Private' },
+  { href: '/#opportunities', label: 'Live' },
+  { href: '/#calculator', label: 'R&D Credit' },
 ];
 
 export default function Header() {
   return (
     <header className="border-b border-line bg-[color-mix(in_srgb,var(--bg)_85%,transparent)] backdrop-blur-md">
       <div className="mx-auto flex max-w-[1440px] items-center justify-between gap-8 px-5 py-3.5 md:px-8">
-        <a href="#top" className="flex items-center gap-3 font-mono text-[13px] font-medium tracking-[0.02em] text-ink">
+        <a href="/" className="flex items-center gap-3 font-mono text-[13px] font-medium tracking-[0.02em] text-ink">
           <BrandMark />
           <span className="flex flex-col leading-[1.1]">
             <span>
