@@ -22,6 +22,7 @@ const sourceLinks = [
 
 const connectLinks: { href: string; label: string; external?: boolean; rel?: string }[] = [
   { href: 'https://x.com/ukfunding_io', label: 'X / Twitter', external: true, rel: 'me noopener' },
+  { href: 'https://github.com/IP3-Studio/ukfunding', label: 'GitHub', external: true, rel: 'noopener' },
   { href: 'mailto:contact@ip3.studio', label: 'Contact us' },
   // LinkedIn, RSS — pending. Re-enable when set up.
 ];
