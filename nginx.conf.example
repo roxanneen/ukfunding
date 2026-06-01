@@ -1,0 +1,96 @@
+# nginx config for self-hosting ukfunding.io's static export.
+#
+# Assumes:
+#   - You've run `npm run build:static` and copied `out/` to `/var/www/ukfunding-io/`.
+#   - TLS is terminated by Certbot or upstream Caddy. If terminating in nginx,
+#     uncomment the SSL block and point at your certs.
+
+server {
+    listen 80;
+    listen [::]:80;
+    server_name ukfunding.io www.ukfunding.io;
+
+    # Redirect everything to HTTPS. Comment out if TLS is upstream.
+    return 301 https://ukfunding.io$request_uri;
+}
+
+server {
+    listen 443 ssl http2;
+    listen [::]:443 ssl http2;
+    server_name www.ukfunding.io;
+
+    ssl_certificate     /etc/letsencrypt/live/ukfunding.io/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/ukfunding.io/privkey.pem;
+
+    # Redirect www → apex.
+    return 301 https://ukfunding.io$request_uri;
+}
+
+server {
+    listen 443 ssl http2;
+    listen [::]:443 ssl http2;
+    server_name ukfunding.io;
+
+    root /var/www/ukfunding-io;
+    index index.html;
+
+    # TLS (Let's Encrypt / Certbot).
+    ssl_certificate     /etc/letsencrypt/live/ukfunding.io/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/ukfunding.io/privkey.pem;
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_prefer_server_ciphers off;
+
+    # ===== Security headers =====
+    add_header X-Content-Type-Options "nosniff" always;
+    add_header X-Frame-Options "DENY" always;
+    add_header Referrer-Policy "strict-origin-when-cross-origin" always;
+    add_header Permissions-Policy "camera=(), microphone=(), geolocation=(), interest-cohort=()" always;
+    add_header Strict-Transport-Security "max-age=63072000; includeSubDomains; preload" always;
+
+    # ===== Compression =====
+    gzip on;
+    gzip_vary on;
+    gzip_min_length 1024;
+    gzip_proxied any;
+    gzip_comp_level 6;
+    gzip_types
+        text/plain text/css text/xml text/javascript
+        application/javascript application/json application/xml
+        application/rss+xml application/atom+xml
+        image/svg+xml font/woff2 font/woff;
+
+    # ===== Caching =====
+
+    # Immutable hashed assets — cache forever.
+    location ^~ /_next/static/ {
+        access_log off;
+        add_header Cache-Control "public, max-age=31536000, immutable" always;
+        try_files $uri =404;
+    }
+
+    # Icons + OG image — moderate cache with revalidation.
+    location ~* ^/(icon|apple-icon|opengraph-image|favicon) {
+        add_header Cache-Control "public, max-age=86400, stale-while-revalidate=604800" always;
+        try_files $uri $uri.png $uri.svg =404;
+    }
+
+    # robots.txt / sitemap.xml — short cache.
+    location ~* ^/(robots\.txt|sitemap\.xml)$ {
+        add_header Cache-Control "public, max-age=3600" always;
+        try_files $uri =404;
+    }
+
+    # Default: HTML and everything else — no cache, revalidate.
+    location / {
+        add_header Cache-Control "public, max-age=0, must-revalidate" always;
+        # `trailingSlash: true` is set when building for static — pages live under /path/index.html.
+        try_files $uri $uri/ $uri.html =404;
+    }
+
+    # Hide dotfiles.
+    location ~ /\. {
+        deny all;
+        access_log off;
+        log_not_found off;
+    }
+}

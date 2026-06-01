@@ -1,0 +1,249 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Belt-and-braces: stop any errant element (the ticker, a stray section, etc.)
+   from creating horizontal page scroll on narrow viewports.
+   `overflow-x: clip` instead of `hidden` so position:sticky still works on
+   descendants (the sticky header + ticker). Chrome 90+, FF 81+, Safari 16+. */
+html, body { overflow-x: clip; }
+
+/* ===== DESIGN TOKENS ===== */
+
+:root[data-theme="dark"] {
+  --bg: #0a0a0a;
+  --bg-elev: #141414;
+  --bg-paper: #1a1a1c;
+  --line: #262628;
+  --line-strong: #38383c;
+  --ink: #f5f3ec;
+  --ink-mute: #8a8884;
+  --ink-faint: #565452;
+  --grid: rgba(255,255,255,0.025);
+  /* Union Jack accents — lifted for dark bg legibility */
+  --accent: #5A86C9;       /* Union Jack blue (Pantone 280C base, brightened) */
+  --warn:   #E04A5E;       /* Union Jack red (Pantone 186C base, brightened) */
+}
+
+:root[data-theme="light"] {
+  --bg: #ffffff;
+  --bg-elev: #ffffff;
+  --bg-paper: #f7f7f7;
+  --line: #e5e5e5;
+  --line-strong: #aaaaaa;
+  --ink: #0c0c0c;
+  --ink-mute: #666666;
+  --ink-faint: #999999;
+  --grid: rgba(0,0,0,0.04);
+  /* Union Jack accents — official Pantone values for paper */
+  --accent: #012169;       /* Pantone 280C — Union Jack blue */
+  --warn:   #C8102E;       /* Pantone 186C — Union Jack red */
+}
+
+/* ===== BASE ===== */
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+/* ===== BACKGROUND GRID ===== */
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 80px 80px;
+  mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+}
+
+/* ===== ANIMATIONS ===== */
+
+@keyframes tick {
+  to { transform: translateX(-100%); }
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+/* ===== UTILITY CLASSES ===== */
+
+.font-label {
+  font-family: var(--font-roboto-mono), monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+/* Section frame used by all editorial sections */
+.section-frame {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 90px 32px;
+  border-bottom: 1px solid var(--line);
+}
+@media (max-width: 700px) {
+  .section-frame { padding: 60px 20px; }
+}
+
+/* Section heading with serif-style em (rendered in 300 weight via Roboto) */
+.section-em em {
+  font-style: normal;
+  font-weight: 300;
+  color: var(--ink-mute);
+}
+
+/* Stage bar: width set via --stage-width CSS variable on the element.
+   Blue → red gradient is a quiet Union Jack reference. */
+.stage-bar {
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent) 0%, var(--warn) 100%);
+  margin-top: 22px;
+  width: var(--stage-width, 50%);
+  opacity: 0.9;
+}
+
+/* Ticker animation track */
+.ticker-track {
+  display: inline-flex;
+  gap: 48px;
+  animation: tick 240s linear infinite;
+  padding-left: 100%;
+}
+
+/* Respect reduced-motion for purely decorative animations only.
+   The ticker is informational — without movement you can't see beyond the
+   first few items — so it keeps animating even when reduce-motion is set. */
+@media (prefers-reduced-motion: reduce) {
+  .step-fade-in { animation: none; }
+  .live-dot::before { animation: none; }
+}
+
+/* Keyboard focus on SVG region paths — visible accent ring */
+.uk-map .region:focus-visible {
+  outline: none;
+  fill: color-mix(in srgb, var(--accent) 22%, var(--bg-elev));
+  stroke: var(--accent);
+  stroke-width: 2.5;
+}
+
+/* Live-pulse dot in hero pill */
+.live-dot::before {
+  content: "";
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  background: var(--accent);
+  border-radius: 50%;
+  margin-right: 8px;
+  vertical-align: middle;
+  animation: pulse-dot 1.6s ease-in-out infinite;
+}
+
+/* ARIA spotlight ribbon — small label that sits on the top border */
+.aria-ribbon {
+  position: relative;
+}
+.aria-ribbon::before {
+  content: "SPOTLIGHT";
+  position: absolute;
+  top: -10px;
+  left: 32px;
+  background: var(--bg);
+  padding: 0 12px;
+  font-family: var(--font-roboto-mono), monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.2em;
+  color: var(--accent);
+}
+
+/* Subtle hover overlay for sector cards */
+.hover-glow {
+  position: relative;
+}
+.hover-glow::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at top right, color-mix(in srgb, var(--accent) 10%, transparent), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.4s;
+  pointer-events: none;
+}
+.hover-glow:hover::after {
+  opacity: 1;
+}
+
+/* ===== STEP-IN ANIMATION ===== */
+@keyframes step-fade-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.step-fade-in {
+  animation: step-fade-up 0.4s ease;
+}
+
+/* ===== UK REGION MAP ===== */
+.uk-map .region {
+  fill: var(--bg-elev);
+  stroke: var(--line-strong);
+  stroke-width: 1.2;
+  cursor: pointer;
+  transition: fill 0.2s, stroke 0.2s;
+  outline: none;
+}
+.uk-map .region:focus { outline: none; }
+.uk-map .region:hover {
+  fill: color-mix(in srgb, var(--accent) 14%, var(--bg-elev));
+  stroke: var(--accent);
+}
+.uk-map .region.active {
+  fill: color-mix(in srgb, var(--accent) 28%, var(--bg-elev));
+  stroke: var(--accent);
+  stroke-width: 2;
+}
+.uk-map .region:focus-visible {
+  outline: none;
+  stroke: var(--accent);
+  stroke-width: 2.5;
+  fill: color-mix(in srgb, var(--accent) 14%, var(--bg-elev));
+}
+.uk-map .region-label {
+  font-family: var(--font-roboto-mono), monospace;
+  font-size: 9px;
+  fill: var(--ink-mute);
+  letter-spacing: 0.05em;
+  pointer-events: none;
+  text-anchor: middle;
+}
+.uk-map .region.active + .region-label,
+.uk-map .region:hover + .region-label {
+  fill: var(--ink);
+}
+
+/* ===== OPPORTUNITIES TABLE TYPE TAGS ===== */
+.type-tag {
+  display: inline-block;
+  padding: 3px 8px;
+  border: 1px solid var(--line-strong);
+  font-family: var(--font-roboto-mono), monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+}
+.type-tag.grant      { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.type-tag.equity     { color: var(--ink); border-color: var(--ink); }
+.type-tag.accelerator{ color: var(--ink); border: 1px solid var(--ink); font-weight: 300; letter-spacing: 0.04em; }
+.type-tag.loan       { color: var(--ink); border: 1px dashed var(--ink); }
+.type-tag.tax        { color: var(--ink); border: none; border-bottom: 1px solid var(--ink); padding-left: 0; padding-right: 0; }
