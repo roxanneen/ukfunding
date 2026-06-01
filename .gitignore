@@ -2,6 +2,9 @@ node_modules/
 .next/
 out/
 
+# Archive of pre-Next.js prototype assets, kept locally for reference only
+_archive/
+
 # Env files — never commit secrets
 .env
 .env.local
