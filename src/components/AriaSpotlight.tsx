@@ -2,7 +2,7 @@ import { ariaPrograms } from '@/data';
 
 export default function AriaSpotlight() {
   return (
-    <div className="aria-ribbon mt-10 grid items-start gap-10 border border-ink bg-bg-paper p-12 md:grid-cols-[1fr_1.5fr] md:gap-16">
+    <div className="aria-ribbon mt-10 grid items-start gap-8 border border-ink bg-bg-paper p-6 sm:gap-10 sm:p-10 md:grid-cols-[1fr_1.5fr] md:gap-16 md:p-12">
       <div>
         <div className="mb-4 font-mono text-[10.5px] uppercase tracking-[0.18em] text-ink-mute">
           STATE-BACKED · FRONTIER R&amp;D
