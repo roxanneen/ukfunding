@@ -18,14 +18,14 @@ export default function AriaSpotlight() {
       <div>
         <p className="mb-3.5 text-[14px] leading-[1.6] text-ink-mute">
           <strong className="font-medium text-ink">Advanced Research + Invention Agency.</strong> Spun out of UKRI in
-          2023, ARIA backs frontier research that traditional grant bodies won&rsquo;t touch. Programs are problem-led,
-          multi-year, and cross-institutional — funding small teams of researchers in adjacent fields toward a single
+          2023, ARIA backs frontier research that traditional grant bodies won&rsquo;t touch. Programmes are problem-led,
+          multi-year, and cross-institutional — funding small teams of researchers in adjacent fields towards a single
           ambitious goal.
         </p>
         <p className="mb-3.5 text-[14px] leading-[1.6] text-ink-mute">
-          Funding is structured as program contracts, not grants. Eligibility is broad: universities, startups,
+          Funding is structured as programme contracts, not grants. Eligibility is broad: universities, startups,
           individuals. Total deployable across opportunity spaces is currently{' '}
-          <strong className="font-medium text-ink">£800m+ over the parliament term</strong>, with individual programs
+          <strong className="font-medium text-ink">£800m+ over the parliament term</strong>, with individual programmes
           ranging from <strong className="font-medium text-ink">£15M to £80M</strong> over multi-year periods.
         </p>
 

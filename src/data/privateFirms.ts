@@ -20,12 +20,12 @@ export const privateFirms: PrivateFirm[] = [
   { name: 'Concept Ventures', category: 'vc_seed', ticketLabel: '£200K–£1M', description: "UK's largest dedicated pre-seed fund." },
 
   // Accelerators
-  { name: 'Entrepreneur First', category: 'accelerator', ticketLabel: '£100K · 8%', description: '6-month talent program. Pre-team founders.' },
+  { name: 'Entrepreneur First', category: 'accelerator', ticketLabel: '£100K · 8%', description: '6-month talent programme. Pre-team founders.' },
   { name: 'Y Combinator', category: 'accelerator', ticketLabel: '$500K · 7%', description: 'Quarterly batches. UK companies eligible.' },
   { name: 'Antler London', category: 'accelerator', ticketLabel: '£85K · 8%', description: 'Pre-team to incorporation in 6 months.' },
   { name: 'Techstars London', category: 'accelerator', ticketLabel: '$120K · 6%', description: '13-week intensive. Mentor-driven.' },
   { name: 'Founders Factory', category: 'accelerator', ticketLabel: '£30K–£250K', description: '6-month, corporate-backed verticals.' },
-  { name: 'Conception X', category: 'accelerator', ticketLabel: 'Equity-free', description: '9-month deeptech program for PhD founders.' },
+  { name: 'Conception X', category: 'accelerator', ticketLabel: 'Equity-free', description: '9-month deeptech programme for PhD founders.' },
   { name: 'Zinc VC', category: 'accelerator', ticketLabel: '£20K + 4%', description: 'Mission-led. Health, ageing, climate.' },
   { name: 'Deep Science Ventures', category: 'accelerator', ticketLabel: 'Venture-build', description: 'Forms PhD-level deeptech ventures problem-up.' },
 

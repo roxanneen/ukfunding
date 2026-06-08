@@ -42,7 +42,13 @@ export const metadata: Metadata = {
     'venture capital UK',
   ],
   authors: [{ name: 'ukfunding.io editorial' }],
-  alternates: { canonical: '/' },
+  alternates: {
+    canonical: '/',
+    languages: {
+      'en-GB': '/',
+      'x-default': '/',
+    },
+  },
   openGraph: {
     type: 'website',
     url: SITE_URL,
@@ -77,9 +83,22 @@ const jsonLd = {
       '@type': 'Organization',
       '@id': `${SITE_URL}#organization`,
       name: 'ukfunding.io',
+      legalName: 'IP3 Studio Ltd',
       url: SITE_URL,
       description:
         'Independent editorial atlas of UK startup funding — public schemes, private capital, ARIA, and tax relief.',
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: '112 Morden Road',
+        addressLocality: 'London',
+        postalCode: 'SW19 3BP',
+        addressCountry: 'GB',
+      },
+      areaServed: { '@type': 'Country', name: 'United Kingdom' },
+      sameAs: [
+        'https://x.com/ukfunding_io',
+        'https://github.com/IP3-Studio/ukfunding',
+      ],
     },
     {
       '@type': 'WebSite',
@@ -104,7 +123,7 @@ try {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" data-theme="dark" className={`${roboto.variable} ${robotoMono.variable}`}>
+    <html lang="en-GB" data-theme="dark" className={`${roboto.variable} ${robotoMono.variable}`}>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
         <script

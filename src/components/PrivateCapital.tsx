@@ -5,7 +5,7 @@ import AriaSpotlight from './AriaSpotlight';
 const columns: { key: PrivateCategory; num: string; title: string; sub: (count: number) => string }[] = [
   { key: 'vc_lead', num: 'COLUMN A', title: 'Lead VCs', sub: (n) => `Series A onwards · ${n} firms` },
   { key: 'vc_seed', num: 'COLUMN B', title: 'Seed & Early-Stage', sub: (n) => `Pre-seed → Seed · ${n} firms` },
-  { key: 'accelerator', num: 'COLUMN C', title: 'Accelerators', sub: (n) => `Programs & talent · ${n} tracked` },
+  { key: 'accelerator', num: 'COLUMN C', title: 'Accelerators', sub: (n) => `Programmes & talent · ${n} tracked` },
   { key: 'angel_crowd', num: 'COLUMN D', title: 'Angels & Crowd', sub: (n) => `Networks & platforms · ${n} tracked` },
 ];
 
@@ -67,7 +67,7 @@ export default function PrivateCapital() {
 
       <p className="mt-8 max-w-[720px] border-l-2 border-line-strong pl-5 text-[13px] leading-[1.55] text-ink-faint">
         Tickets shown are typical ranges, not floors or ceilings. Crowdfunding rounds are net of platform fees
-        (typically 7%). ARIA program budgets per <em>aria.org.uk</em> opportunity-space announcements; total deployment
+        (typically 7%). ARIA programme budgets per <em>aria.org.uk</em> opportunity-space announcements; total deployment
         depends on contract awards.
       </p>
     </section>

@@ -456,7 +456,7 @@ export const schemes: Scheme[] = [
     body: 'Founders Factory',
     amountLabel: '£30K–£250K',
     amountCeiling: 250_000,
-    tag: 'Accelerator · Vertical programs',
+    tag: 'Accelerator · Vertical programmes',
     type: 'accelerator',
     stages: ['preseed', 'seed'],
     sectors: ['ai', 'health', 'climate', 'other'],
