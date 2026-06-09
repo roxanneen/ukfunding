@@ -112,7 +112,7 @@ export default function AskAI() {
   };
 
   return (
-    <div className="mx-auto flex max-w-[1440px] flex-col gap-3 border-t border-line px-5 py-6 md:flex-row md:items-center md:justify-between md:px-8">
+    <div className="mx-auto flex max-w-[1440px] flex-col gap-3 px-5 pb-6 pt-12 md:flex-row md:items-center md:justify-between md:px-8 md:pt-[60px]">
       <div className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink-mute">
         Summarise this site with AI
       </div>

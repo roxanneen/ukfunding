@@ -31,13 +31,13 @@ const connectLinks: { href: string; label: string; external?: boolean; rel?: str
 export default function Footer() {
   return (
     <footer className="border-t border-line bg-bg">
-      <div className="mx-auto grid max-w-[1440px] gap-10 px-5 pb-8 pt-12 sm:grid-cols-3 md:gap-12 md:px-8 md:pb-8 md:pt-[60px]">
+      <AskAI />
+
+      <div className="mx-auto grid max-w-[1440px] gap-10 border-t border-line px-5 pb-8 pt-10 sm:grid-cols-3 md:gap-12 md:px-8 md:pb-8 md:pt-12">
         <FooterCol title="Sections" links={sectionLinks} />
         <FooterCol title="Sources" links={sourceLinks} external />
         <FooterCol title="Connect" links={connectLinks} respectExternal />
       </div>
-
-      <AskAI />
 
       <div className="mx-auto flex max-w-[1440px] flex-wrap justify-between gap-4 border-t border-line px-5 py-5 font-mono text-[11px] tracking-[0.08em] text-ink-mute md:px-8 md:py-6">
         <div className="flex flex-wrap gap-x-2">
