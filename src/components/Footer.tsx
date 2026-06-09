@@ -1,3 +1,4 @@
+import AskAI from './AskAI';
 import YearStamp from './YearStamp';
 
 // Absolute hrefs so the Sections column works from sub-pages too (e.g. /legal).
@@ -35,6 +36,8 @@ export default function Footer() {
         <FooterCol title="Sources" links={sourceLinks} external />
         <FooterCol title="Connect" links={connectLinks} respectExternal />
       </div>
+
+      <AskAI />
 
       <div className="mx-auto flex max-w-[1440px] flex-wrap justify-between gap-4 border-t border-line px-5 py-5 font-mono text-[11px] tracking-[0.08em] text-ink-mute md:px-8 md:py-6">
         <div className="flex flex-wrap gap-x-2">
