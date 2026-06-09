@@ -176,8 +176,10 @@ export default function LegalPage() {
             .
           </p>
           <p>
-            ukfunding.io is designed to collect the minimum data necessary. We do not run third-party
-            analytics, advertising trackers, or social media pixels on the site.
+            ukfunding.io is designed to collect the minimum data necessary. We use Vercel Web Analytics — a
+            privacy-friendly, cookieless measurement tool that counts aggregate page views without setting
+            cookies or tracking you across other websites. We do not run advertising trackers or social media
+            pixels.
           </p>
           <p>
             <strong>What we store:</strong>
@@ -188,8 +190,11 @@ export default function LegalPage() {
               remembers your choice. Never transmitted.
             </li>
             <li>
-              Your email address, only if you choose to subscribe to the newsletter. Used solely to send the
-              newsletter. You can unsubscribe from any issue. We do not share, sell, or rent the list.
+              Your email address, only if you choose to subscribe to the newsletter. The newsletter is run
+              through Substack, which stores your address and delivers the emails on our behalf as our
+              processor (see Substack&rsquo;s own privacy policy). It is used solely to send the newsletter —
+              you can unsubscribe from any issue in one click. We do not share, sell, or rent the list for any
+              other purpose.
             </li>
             <li>
               Standard web-server logs (timestamps, IP address, requested page, user agent) retained for
