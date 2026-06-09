@@ -19,7 +19,7 @@ const robotoMono = Roboto_Mono({
 
 const SITE_URL = 'https://ukfunding.io';
 const SITE_DESCRIPTION =
-  'An independent editorial atlas of UK startup funding — public schemes, private capital, ARIA programmes, and tax relief in one place. No vendors, no affiliate links.';
+  'Every pound, mapped. An independent editorial atlas of UK startup funding — public schemes, private capital, ARIA programmes, and tax relief in one place. No vendors, no affiliate links.';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

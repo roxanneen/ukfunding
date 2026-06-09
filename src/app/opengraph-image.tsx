@@ -59,11 +59,11 @@ export default function OpenGraphImage() {
           <div style={{ fontFamily: 'monospace', fontSize: '18px', letterSpacing: '0.18em', color: '#5A86C9', textTransform: 'uppercase', marginBottom: '24px' }}>
             An atlas of British funding
           </div>
-          <div style={{ fontSize: '72px', lineHeight: 1.05, letterSpacing: '-0.03em', fontWeight: 500, maxWidth: '1000px' }}>
-            The capital infrastructure of British innovation, mapped.
+          <div style={{ fontSize: '88px', lineHeight: 1.02, letterSpacing: '-0.035em', fontWeight: 500, maxWidth: '1000px' }}>
+            Every pound, mapped.
           </div>
-          <div style={{ fontSize: '24px', lineHeight: 1.4, color: '#8a8884', marginTop: '32px', maxWidth: '900px' }}>
-            50+ schemes. 9 regions. £2.8B deployable.
+          <div style={{ fontSize: '26px', lineHeight: 1.4, color: '#8a8884', marginTop: '28px', maxWidth: '900px' }}>
+            The capital infrastructure of British innovation — 58+ schemes, 9 regions, £2.8B deployable.
           </div>
         </div>
 

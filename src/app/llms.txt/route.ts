@@ -12,7 +12,7 @@ const SITE = 'https://ukfunding.io';
  * from the data layer, so this never drifts from what the site actually shows.
  */
 export function GET() {
-  const body = `# ukfunding.io
+  const body = `# ukfunding.io — Every pound, mapped.
 
 > An independent editorial atlas of UK startup funding — public schemes, private capital, ARIA programmes, and tax relief in one place. No vendors, no affiliate links. Editorial only; not financial advice.
 

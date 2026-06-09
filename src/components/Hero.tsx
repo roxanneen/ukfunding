@@ -18,6 +18,9 @@ export default function Hero() {
   return (
     <section className="mx-auto grid max-w-[1440px] items-end gap-12 border-b border-line px-5 py-16 md:grid-cols-[1fr_380px] md:gap-20 md:px-8 md:pb-[60px] md:pt-20">
       <div>
+        <p className="mb-5 font-mono text-[13px] uppercase tracking-[0.2em] text-accent">
+          Every pound, mapped.
+        </p>
         <div className="mb-8 flex flex-wrap items-center gap-4">
           <span className="live-dot border border-line-strong px-3 py-[5px] font-mono text-[11px] tracking-[0.08em] text-ink-mute">
             {lastUpdatedLabel()}
