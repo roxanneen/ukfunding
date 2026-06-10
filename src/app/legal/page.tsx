@@ -190,11 +190,18 @@ export default function LegalPage() {
               remembers your choice. Never transmitted.
             </li>
             <li>
-              Your email address, only if you choose to subscribe to the newsletter. The newsletter is run
-              through Substack, which stores your address and delivers the emails on our behalf as our
-              processor (see Substack&rsquo;s own privacy policy). It is used solely to send the newsletter —
-              you can unsubscribe from any issue in one click. We do not share, sell, or rent the list for any
-              other purpose.
+              Your email address, only if you choose to subscribe to the newsletter. It is stored securely in
+              our own database (hosted by Upstash on UK/EU infrastructure) so we can email you when the
+              newsletter launches; ongoing delivery and one-click unsubscribe will then be handled by Substack
+              as our processor. It is used solely for the newsletter — to be removed at any time before
+              launch, email{' '}
+              <a
+                href="mailto:contact@ip3.studio"
+                className="text-accent underline-offset-4 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+              >
+                contact@ip3.studio
+              </a>
+              . We do not share, sell, or rent the list.
             </li>
             <li>
               Standard web-server logs (timestamps, IP address, requested page, user agent) retained for

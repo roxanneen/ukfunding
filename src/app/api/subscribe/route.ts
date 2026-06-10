@@ -1,14 +1,24 @@
 import { NextResponse } from 'next/server';
+import { Redis } from '@upstash/redis';
 
-// Runs on the server (Vercel), so the request to Substack isn't subject to
-// browser CORS and no third-party script loads in the visitor's browser —
-// keeping the site's no-client-third-party promise intact.
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 
-// Public subdomain (not a secret); overridable via env if it ever changes.
-const SUBSTACK = process.env.SUBSTACK_SUBDOMAIN ?? 'ukfunding';
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const KEY = 'subscribers';
+
+/**
+ * Lazily build the Redis client from whichever env vars the Vercel/Upstash
+ * integration injected (Vercel KV uses KV_REST_API_*, the Upstash Marketplace
+ * integration uses UPSTASH_REDIS_REST_*). Returns null if not yet configured,
+ * so the build and an unprovisioned state stay safe.
+ */
+function getRedis(): Redis | null {
+  const url = process.env.KV_REST_API_URL ?? process.env.UPSTASH_REDIS_REST_URL;
+  const token = process.env.KV_REST_API_TOKEN ?? process.env.UPSTASH_REDIS_REST_TOKEN;
+  if (!url || !token) return null;
+  return new Redis({ url, token });
+}
 
 export async function POST(request: Request) {
   let email = '';
@@ -23,46 +33,23 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: false, error: 'Please enter a valid email address.' }, { status: 400 });
   }
 
-  const base = `https://${SUBSTACK}.substack.com`;
+  const redis = getRedis();
+  if (!redis) {
+    return NextResponse.json(
+      { ok: false, error: 'Sign-up is temporarily unavailable. Please try again shortly.' },
+      { status: 503 }
+    );
+  }
 
   try {
-    const res = await fetch(`${base}/api/v1/free`, {
-      method: 'POST',
-      headers: {
-        'content-type': 'application/json',
-        accept: 'application/json, text/plain, */*',
-        'user-agent': 'Mozilla/5.0 (compatible; ukfunding.io/1.0; +https://ukfunding.io)',
-        origin: base,
-        referer: `${base}/`,
-      },
-      body: JSON.stringify({
-        email,
-        first_url: `${base}/`,
-        first_referrer: '',
-        current_url: `${base}/subscribe`,
-        current_referrer: '',
-        referral_code: '',
-        source: 'subscribe_page',
-      }),
-      // Don't hang the user's request forever if Substack is slow.
-      signal: AbortSignal.timeout(8000),
-    });
-
-    if (res.ok) {
-      return NextResponse.json({ ok: true });
-    }
-
-    // Substack may return a bot-protection challenge or other error.
-    return NextResponse.json(
-      {
-        ok: false,
-        error: 'We couldn’t complete the sign-up right now. Please try again in a moment.',
-      },
-      { status: 502 }
-    );
+    // Sorted set keyed by signup time → dedupes, preserves first-signup
+    // timestamp (nx keeps the original score on re-subscribe), and exports
+    // cleanly to CSV with dates.
+    await redis.zadd(KEY, { nx: true }, { score: Date.now(), member: email });
+    return NextResponse.json({ ok: true });
   } catch {
     return NextResponse.json(
-      { ok: false, error: 'Couldn’t reach the sign-up service. Please try again.' },
+      { ok: false, error: 'Could not save your sign-up. Please try again.' },
       { status: 502 }
     );
   }
