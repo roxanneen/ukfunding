@@ -4,6 +4,7 @@ export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 
 const KEY = 'subscribers';
+const EXPORT_KEY_FIELD = 'export_key';
 
 function getRedis(): Redis | null {
   const url = process.env.KV_REST_API_URL ?? process.env.UPSTASH_REDIS_REST_URL;
@@ -15,25 +16,34 @@ function getRedis(): Redis | null {
 /**
  * Password-gated CSV export of the subscriber list, ready to import into
  * Substack (or anywhere). Visit:
- *   /api/subscribe/export?key=YOUR_SUBSCRIBE_EXPORT_KEY
- * The key is the SUBSCRIBE_EXPORT_KEY env var you set in Vercel.
+ *   /api/subscribe/export?key=YOUR_EXPORT_KEY
+ *
+ * The expected key is taken from the SUBSCRIBE_EXPORT_KEY env var if set;
+ * otherwise from a key provisioned once via POST /api/subscribe/export/setup
+ * and stored in Redis. The Redis path means the export works without having to
+ * add a Vercel environment variable.
  */
 export async function GET(request: Request) {
   const provided = new URL(request.url).searchParams.get('key') ?? '';
-  const expected = process.env.SUBSCRIBE_EXPORT_KEY ?? '';
-
-  // Distinguish "not configured" (503) from "wrong value" (401) so setup stays
-  // debuggable — without leaking the key's length or contents.
-  if (!expected) {
-    return new Response('Export is not configured on the server.', { status: 503 });
-  }
-  if (provided !== expected) {
-    return new Response('Unauthorized.', { status: 401 });
-  }
 
   const redis = getRedis();
   if (!redis) {
     return new Response('Subscriber store is not configured.', { status: 503 });
+  }
+
+  // Env var wins if present; otherwise fall back to the key set up in Redis.
+  const envKey = process.env.SUBSCRIBE_EXPORT_KEY ?? '';
+  const storedKey = envKey ? '' : (await redis.get<string>(EXPORT_KEY_FIELD)) ?? '';
+  const expected = envKey || storedKey;
+
+  if (!expected) {
+    return new Response(
+      'Export is not configured yet. Run the one-time setup first (POST /api/subscribe/export/setup).',
+      { status: 503 }
+    );
+  }
+  if (provided !== expected) {
+    return new Response('Unauthorized.', { status: 401 });
   }
 
   // withScores returns a flat array: [member, score, member, score, ...]
