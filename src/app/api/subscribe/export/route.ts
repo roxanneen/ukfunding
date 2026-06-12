@@ -22,12 +22,13 @@ export async function GET(request: Request) {
   const provided = new URL(request.url).searchParams.get('key') ?? '';
   const expected = process.env.SUBSCRIBE_EXPORT_KEY ?? '';
 
-  // Distinguish "not configured" from "wrong value" to make setup debuggable.
+  // Distinguish "not configured" (503) from "wrong value" (401) so setup stays
+  // debuggable — without leaking the key's length or contents.
   if (!expected) {
-    return new Response('export-key-not-configured', { status: 503 });
+    return new Response('Export is not configured on the server.', { status: 503 });
   }
   if (provided !== expected) {
-    return new Response(`unauthorized (server key is ${expected.length} chars)`, { status: 401 });
+    return new Response('Unauthorized.', { status: 401 });
   }
 
   const redis = getRedis();
