@@ -22,8 +22,12 @@ export async function GET(request: Request) {
   const provided = new URL(request.url).searchParams.get('key') ?? '';
   const expected = process.env.SUBSCRIBE_EXPORT_KEY ?? '';
 
-  if (!expected || provided !== expected) {
-    return new Response('Unauthorized', { status: 401 });
+  // Distinguish "not configured" from "wrong value" to make setup debuggable.
+  if (!expected) {
+    return new Response('export-key-not-configured', { status: 503 });
+  }
+  if (provided !== expected) {
+    return new Response(`unauthorized (server key is ${expected.length} chars)`, { status: 401 });
   }
 
   const redis = getRedis();
