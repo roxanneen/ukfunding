@@ -52,11 +52,11 @@ export default function RegionMap() {
     <section id="regions" className="section-frame">
       <div className="mb-12 flex max-w-[780px] flex-col gap-4">
         <h2 className="section-em text-display font-medium">
-          The map is <em>not flat</em>. Where you incorporate matters.
+          Where you incorporate <em>changes what you can raise</em>.
         </h2>
         <p className="max-w-[640px] text-[16px] leading-[1.55] text-ink-mute">
-          Every devolved nation runs its own equity funds and grant programmes. England&rsquo;s regional engines (NPIF
-          II, MEIF, BBB) plug remaining gaps. Click a region.
+          Every devolved nation runs its own equity funds and grant programmes, and England&rsquo;s regional engines
+          fill in around them: NPIF II, MEIF and the British Business Bank. Click a region to see what sits there.
         </p>
       </div>
 
@@ -67,12 +67,12 @@ export default function RegionMap() {
             viewBox="67 16 278 514"
             xmlns="http://www.w3.org/2000/svg"
             role="img"
-            aria-label="Interactive map of UK regions — click or press Enter on a region to view its funding context"
+            aria-label="Interactive map of UK regions. Click or press Enter on a region to view its funding context."
           >
             {regionPaths.map((p) => {
               const rg = regions.find((r) => r.id === p.id);
               const ariaLabel = rg
-                ? `${rg.name} — ${rg.stats[1]} active schemes, ${rg.stats[0]} annual funding`
+                ? `${rg.name}: ${rg.stats[1]} active schemes, ${rg.stats[0]} annual funding`
                 : p.label;
               return (
                 <g key={p.id}>
@@ -102,7 +102,7 @@ export default function RegionMap() {
 
         <div className="flex flex-col p-8 lg:p-10">
           <div className="mb-3 font-mono text-[11px] tracking-[0.2em] text-accent">
-            {region ? region.marker : '— SELECT A REGION —'}
+            {region ? region.marker : 'SELECT A REGION'}
           </div>
           <h3 className="mb-6 font-sans text-[36px] font-medium leading-none tracking-[-0.015em]">
             {region ? region.name : 'Click a region on the map.'}

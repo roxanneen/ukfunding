@@ -70,11 +70,11 @@ export default function FundingMatchmaker() {
     <section id="matchmaker" className="section-frame">
       <div className="mb-12 flex max-w-[780px] flex-col gap-4">
         <h2 className="section-em text-display font-medium">
-          Three questions. <em>A shortlist worth opening.</em>
+          Answer three questions, get <em>a shortlist worth opening</em>.
         </h2>
         <p className="max-w-[640px] text-[16px] leading-[1.55] text-ink-mute">
-          Most founders waste weeks reading scheme criteria they were never going to qualify for. Filter by what you
-          actually have: a stage, a sector, and a number.
+          Most founders lose weeks reading criteria they were never going to meet. Filter by what you have: a stage, a
+          sector and a number.
         </p>
       </div>
 
@@ -203,7 +203,7 @@ function ResultsPanel({
 
       {!done && (
         <div className="grid flex-1 place-items-center text-center font-sans text-[18px] font-light text-ink-faint">
-          Pick the three answers — your shortlist will appear here.
+          Pick all three answers and your shortlist appears here.
         </div>
       )}
 

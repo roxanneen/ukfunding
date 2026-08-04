@@ -29,7 +29,7 @@ export default function Newsletter() {
         setStatus('error');
       }
     } catch {
-      setErrorMsg('Network error — please try again.');
+      setErrorMsg('Network error. Please try again.');
       setStatus('error');
     }
   };
@@ -42,8 +42,8 @@ export default function Newsletter() {
             The shortlist, <em>monthly,</em> in your inbox.
           </h3>
           <p className="max-w-[460px] text-[14px] leading-[1.55] text-ink-mute sm:text-[15px]">
-            One email per month. Newly-opened schemes, changes to existing ones, deadlines that matter. Built for
-            founders, not consultants.
+            One email a month, covering newly-opened schemes, changes to the ones already running, and the deadlines
+            worth knowing about. Written for founders.
           </p>
         </div>
 

@@ -12,11 +12,11 @@ const SITE = 'https://ukfunding.io';
  * from the data layer, so this never drifts from what the site actually shows.
  */
 export function GET() {
-  const body = `# ukfunding.io — Every pound, mapped.
+  const body = `# ukfunding.io · Every pound, mapped.
 
-> An independent editorial atlas of UK startup funding — public schemes, private capital, ARIA programmes, and tax relief in one place. No vendors, no affiliate links. Editorial only; not financial advice.
+> An independent editorial atlas of UK startup funding, covering public schemes, private capital, ARIA programmes and tax relief in one place. Nobody pays to be listed. Editorial only; not financial advice.
 
-ukfunding.io maps the capital infrastructure available to UK startups: ${schemes.length} funding schemes across grants, equity, ARIA programmes, accelerators, loans and R&D tax relief — public and private — sorted by stage, sector and UK region. Published by IP3 Studio Ltd, London, UK.
+ukfunding.io maps the funding available to UK startups: ${schemes.length} schemes across grants, equity, ARIA programmes, accelerators, loans and R&D tax relief, both public and private, sorted by stage, sector and UK region. Published by IP3 Studio Ltd, London, UK.
 
 ## Tools
 - [Funding matchmaker](${SITE}/#matchmaker): three questions (stage, sector, amount) return a shortlist of schemes a founder may qualify for.
@@ -32,10 +32,10 @@ ukfunding.io maps the capital infrastructure available to UK startups: ${schemes
 - ${ariaPrograms.length} ARIA opportunity spaces
 
 ## Primary sources
-- gov.uk/business-finance-support — central funding index
-- ukri.org — Innovate UK / UKRI live calls
-- aria.org.uk — ARIA opportunity spaces
-- british-business-bank.co.uk — equity & debt programmes
+- gov.uk/business-finance-support · central funding index
+- ukri.org · Innovate UK / UKRI live calls
+- aria.org.uk · ARIA opportunity spaces
+- british-business-bank.co.uk · equity & debt programmes
 - HMRC R&D tax relief guidance
 
 ## Legal

@@ -31,7 +31,7 @@ function buildOpportunitiesJsonLd() {
     '@id': `${SITE_URL}#open-opportunities`,
     name: 'Open UK startup funding opportunities',
     description:
-      'A maintained list of currently open UK startup funding schemes — grants, equity, loans, accelerators, and tax relief.',
+      'A maintained list of currently open UK startup funding schemes, covering grants, equity, loans, accelerators and tax relief.',
     numberOfItems: open.length,
     itemListElement: open.map((s, idx) => ({
       '@type': 'ListItem',

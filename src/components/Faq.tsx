@@ -13,7 +13,7 @@ export default function Faq() {
           Founder questions, <em>plainly answered</em>.
         </h2>
         <p className="max-w-[640px] text-[16px] leading-[1.55] text-ink-mute">
-          The things people actually ask before applying. Not financial advice.
+          The questions people ask before they apply. None of this is financial advice.
         </p>
       </div>
 

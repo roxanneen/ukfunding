@@ -8,9 +8,9 @@ export default function CapitalStack() {
           Reach <em>growth round</em> in 5 funded steps.
         </h2>
         <p className="max-w-[640px] text-[16px] leading-[1.55] text-ink-mute">
-          UK founders rarely fund a company in one transaction. They stack: a grant pays for the prototype, SEIS pays
-          for the team, EIS pays for the seed, and growth equity follows the traction. Here&rsquo;s how it actually fits
-          together.
+          UK founders rarely fund a company in one transaction. Most stack it: a grant pays for the prototype, the
+          first hires come out of an SEIS round, EIS carries the seed, and growth equity only shows up once there is
+          traction behind it.
         </p>
       </div>
 
@@ -55,8 +55,8 @@ export default function CapitalStack() {
       </div>
 
       <p className="mt-8 max-w-[720px] border-l-2 border-line-strong pl-5 text-[13px] leading-[1.55] text-ink-faint">
-        Read horizontally. The bar widths show the upper bound of what&rsquo;s commonly raised at each step (log-scaled).
-        Tax-relief schemes (SEIS/EIS) are stackable with grants and equity rounds, not alternatives to them.
+        Read horizontally. Bar widths show the upper bound of what gets raised at each step, on a log scale. SEIS and
+        EIS stack on top of grants and equity rounds.
       </p>
     </section>
   );

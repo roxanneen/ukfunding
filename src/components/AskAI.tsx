@@ -12,12 +12,12 @@ const SITE = 'https://ukfunding.io';
 function buildPrompt(schemeCount: number): string {
   return (
     `Summarise ukfunding.io (${SITE}) for a first-time UK founder. ` +
-    `It's an independent editorial atlas of UK startup funding — ${schemeCount}+ schemes across grants, ` +
+    `It's an independent editorial atlas of UK startup funding, with ${schemeCount}+ schemes across grants, ` +
     `equity, ARIA programmes, accelerators, loans and R&D tax relief, public and private, ` +
     `sorted by stage, sector and UK region. Cover its free tools: the funding matchmaker ` +
     `(${SITE}/#matchmaker), the capital-stack guide (${SITE}/#stack), the R&D tax-credit calculator ` +
     `(${SITE}/#calculator), and the live opportunities list (${SITE}/#opportunities). ` +
-    `No vendors, no affiliate links.`
+    `Nobody pays to be listed.`
   );
 }
 

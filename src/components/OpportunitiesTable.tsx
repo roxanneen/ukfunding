@@ -83,8 +83,8 @@ export default function OpportunitiesTable() {
           Live opportunities. <em className="block">No login.</em>
         </h2>
         <p className="max-w-[640px] text-[16px] leading-[1.55] text-ink-mute">
-          A maintained shortlist of currently open schemes. Sort by amount or deadline. Filter by type. The full
-          database is in the newsletter.
+          A maintained shortlist of schemes that are open right now. You can sort by amount or deadline and filter by
+          type. The full database goes out in the newsletter.
         </p>
       </div>
 

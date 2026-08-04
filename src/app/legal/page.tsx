@@ -46,8 +46,8 @@ export default function LegalPage() {
               details change. Always verify on the funder&rsquo;s own website before acting.
             </li>
             <li>
-              <strong className="font-medium">Talk to a qualified professional</strong> — a chartered tax
-              adviser for R&amp;D credits, an FCA-authorised firm for investment decisions, a solicitor for
+              <strong className="font-medium">Talk to a qualified professional.</strong> That means a chartered tax
+              adviser for R&amp;D credits, an FCA-authorised firm for investment decisions, or a solicitor for
               legal questions.
             </li>
             <li>
@@ -86,13 +86,13 @@ export default function LegalPage() {
           </p>
           <p>
             Decisions about applying for grants, raising equity, claiming tax relief, or making investments
-            should be taken only after taking advice from an appropriately qualified professional —
-            FCA-authorised for investment decisions, a chartered tax adviser or accountant for tax matters,
-            and a solicitor for legal matters.
+            should be taken only after advice from an appropriately qualified professional: FCA-authorised for
+            investment decisions, a chartered tax adviser or accountant for tax matters, and a solicitor for legal
+            matters.
           </p>
         </Section>
 
-        <Section id="tax" title="3. R&D tax credit calculator — illustrative only">
+        <Section id="tax" title="3. R&D tax credit calculator: illustrative only">
           <p>
             The R&amp;D tax credit calculator on the site produces an indicative figure based on the inputs
             you provide and the published HMRC rates that applied from 1 April 2024. It is{' '}
@@ -109,9 +109,9 @@ export default function LegalPage() {
 
         <Section id="accuracy" title="4. Accuracy of information">
           <p>
-            We aim to keep scheme details current and check sources regularly. However, funding schemes change
-            — deadlines move, programmes close, eligibility rules are updated, rates are revised, and new
-            calls open. We make no warranty, express or implied, that any specific information on the site is
+            We aim to keep scheme details current and check sources regularly. However, funding schemes change.
+            Deadlines move, programmes close, eligibility rules are updated, rates are revised, and new calls
+            open. We make no warranty, express or implied, that any specific information on the site is
             accurate, complete, or current at the time you read it.
           </p>
           <p>
@@ -176,7 +176,7 @@ export default function LegalPage() {
             .
           </p>
           <p>
-            ukfunding.io is designed to collect the minimum data necessary. We use Vercel Web Analytics — a
+            ukfunding.io is designed to collect the minimum data necessary. We use Vercel Web Analytics, a
             privacy-friendly, cookieless measurement tool that counts aggregate page views without setting
             cookies or tracking you across other websites. We do not run advertising trackers or social media
             pixels.
@@ -186,14 +186,14 @@ export default function LegalPage() {
           </p>
           <ul className="ml-5 list-disc">
             <li>
-              Your theme preference (light or dark) — stored in your browser&rsquo;s localStorage so the site
-              remembers your choice. Never transmitted.
+              Your theme preference (light or dark), stored in your browser&rsquo;s localStorage so the site
+              remembers your choice. It is never transmitted.
             </li>
             <li>
               Your email address, only if you choose to subscribe to the newsletter. It is stored securely in
               our own database (hosted by Upstash on UK/EU infrastructure) so we can email you when the
               newsletter launches; ongoing delivery and one-click unsubscribe will then be handled by Substack
-              as our processor. It is used solely for the newsletter — to be removed at any time before
+              as our processor. It is used solely for the newsletter. To be removed at any time before
               launch, email{' '}
               <a
                 href="mailto:contact@ip3.studio"
@@ -240,7 +240,7 @@ export default function LegalPage() {
 
         <Section id="changes" title="11. Changes to these terms">
           <p>
-            We may update this page from time to time to reflect changes in the law, in the site, or in our
+            We may update this page from time to time to keep up with changes in the law, in the site, or in our
             practices. The &ldquo;Last updated&rdquo; date at the top of the page shows when the latest
             revision was published.
           </p>

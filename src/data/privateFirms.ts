@@ -30,7 +30,7 @@ export const privateFirms: PrivateFirm[] = [
   { name: 'Deep Science Ventures', category: 'accelerator', ticketLabel: 'Venture-build', description: 'Forms PhD-level deeptech ventures problem-up.' },
 
   // Angels & Crowd
-  { name: 'UK Business Angels Assoc.', category: 'angel_crowd', ticketLabel: 'Trade body', description: 'UKBAA — umbrella for ~17,000 active UK angels.' },
+  { name: 'UK Business Angels Assoc.', category: 'angel_crowd', ticketLabel: 'Trade body', description: 'UKBAA, the umbrella body for about 17,000 active UK angels.' },
   { name: 'Cambridge Angels', category: 'angel_crowd', ticketLabel: '£50K–£1M', description: 'Cambridge cluster. Deeptech and health weighted.' },
   { name: 'London Business Angels', category: 'angel_crowd', ticketLabel: '£100K–£500K', description: 'LBA. Pan-sector. Monthly investor evenings.' },
   { name: 'Angel CoFund', category: 'angel_crowd', ticketLabel: '£100K–£1M', description: 'BBB-backed co-invest with angel-led syndicates.' },

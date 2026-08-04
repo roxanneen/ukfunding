@@ -3,7 +3,7 @@ import { ImageResponse } from 'next/og';
 // Use nodejs runtime so the OG image renders both on Vercel and during
 // `next build` for static export.
 export const runtime = 'nodejs';
-export const alt = 'ukfunding.io — an atlas of British funding';
+export const alt = 'ukfunding.io · an atlas of British funding';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
@@ -63,7 +63,7 @@ export default function OpenGraphImage() {
             Every pound, mapped.
           </div>
           <div style={{ fontSize: '26px', lineHeight: 1.4, color: '#8a8884', marginTop: '28px', maxWidth: '900px' }}>
-            The capital infrastructure of British innovation — 58+ schemes, 9 regions, £2.8B deployable.
+            Where British innovation gets its money. 58+ schemes, 9 regions, £2.8B deployable.
           </div>
         </div>
 

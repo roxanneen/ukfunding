@@ -31,14 +31,14 @@ export default function Hero() {
         </div>
 
         <h1 className="section-em mb-7 max-w-[860px] text-display-xl font-medium text-ink">
-          The capital infrastructure of <em>British innovation</em>, mapped.
+          Where <em>British innovation</em> gets its money.
         </h1>
 
         <p className="mb-10 max-w-[620px] text-[19px] leading-[1.5] text-ink-mute">
           <strong className="font-medium text-ink">
             {schemeCount}+ schemes. {regionCount} regions. £2.8&thinsp;billion deployable this fiscal year.
           </strong>{' '}
-          Every grant, equity scheme, ARIA programme, accelerator, VC, loan and tax credit available to UK founders —
+          Every grant, equity scheme, ARIA programme, accelerator, VC, loan and tax credit open to UK founders,
           sorted by stage, sector and geography.
         </p>
 

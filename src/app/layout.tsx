@@ -19,12 +19,12 @@ const robotoMono = Roboto_Mono({
 
 const SITE_URL = 'https://ukfunding.io';
 const SITE_DESCRIPTION =
-  'Every pound, mapped. An independent editorial atlas of UK startup funding — public schemes, private capital, ARIA programmes, and tax relief in one place. No vendors, no affiliate links.';
+  'Every pound, mapped. An independent editorial atlas of UK startup funding, covering public schemes, private capital, ARIA programmes and tax relief in one place. Nobody pays to be listed.';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'ukfunding.io — an atlas of British funding',
+    default: 'ukfunding.io · an atlas of British funding',
     template: '%s · ukfunding.io',
   },
   description: SITE_DESCRIPTION,
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     type: 'website',
     url: SITE_URL,
     siteName: 'ukfunding.io',
-    title: 'ukfunding.io — an atlas of British funding',
+    title: 'ukfunding.io · an atlas of British funding',
     description: SITE_DESCRIPTION,
     locale: 'en_GB',
   },
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     site: '@ukfunding_io',
     creator: '@ukfunding_io',
-    title: 'ukfunding.io — an atlas of British funding',
+    title: 'ukfunding.io · an atlas of British funding',
     description: SITE_DESCRIPTION,
   },
   robots: {
@@ -86,7 +86,7 @@ const jsonLd = {
       legalName: 'IP3 Studio Ltd',
       url: SITE_URL,
       description:
-        'Independent editorial atlas of UK startup funding — public schemes, private capital, ARIA, and tax relief.',
+        'Independent editorial atlas of UK startup funding, covering public schemes, private capital, ARIA and tax relief.',
       address: {
         '@type': 'PostalAddress',
         streetAddress: '112 Morden Road',

@@ -25,8 +25,8 @@ export default function PrivateCapital() {
           Where the <em>institutional</em> money sits.
         </h2>
         <p className="max-w-[640px] text-[16px] leading-[1.55] text-ink-mute">
-          A directory of UK-active venture funds, accelerators, angel networks, and crowdfunding platforms. Curated by
-          stage and ticket size. No affiliate relationships, no pay-to-list.
+          A directory of UK-active venture funds, accelerators, angel networks and crowdfunding platforms, curated by
+          stage and ticket size. Nobody pays to be listed here, and we hold no affiliate relationships.
         </p>
       </div>
 
@@ -66,9 +66,9 @@ export default function PrivateCapital() {
       <AriaSpotlight />
 
       <p className="mt-8 max-w-[720px] border-l-2 border-line-strong pl-5 text-[13px] leading-[1.55] text-ink-faint">
-        Tickets shown are typical ranges, not floors or ceilings. Crowdfunding rounds are net of platform fees
-        (typically 7%). ARIA programme budgets per <em>aria.org.uk</em> opportunity-space announcements; total deployment
-        depends on contract awards.
+        Tickets shown are typical ranges. Funds do go outside them. Crowdfunding rounds are net of platform fees,
+        usually around 7%. ARIA programme budgets follow <em>aria.org.uk</em> opportunity-space announcements; total
+        deployment depends on contract awards.
       </p>
     </section>
   );
@@ -82,28 +82,29 @@ function BpcNote() {
           THE INDIRECT PATH
         </div>
         <h3 className="font-sans text-[26px] font-medium leading-[1.05] tracking-[-0.015em]">
-          How institutional capital <em className="not-italic font-light text-ink-mute">actually</em> reaches founders.
+          The route institutional capital{' '}
+          <em className="not-italic font-light text-ink-mute">takes</em> to founders.
         </h3>
       </div>
       <div className="flex flex-col gap-3.5 text-[14px] leading-[1.6] text-ink-mute">
         <p>
-          <strong className="font-medium text-ink">British Patient Capital</strong> (a BBB subsidiary) and the wider
-          British Business Bank don&rsquo;t write cheques to founders. They commit to and co-invest alongside UK
-          venture and growth-equity managers — Balderton, Northzone, Octopus, Plural and others in the atlas above —
-          who then back companies on their normal terms. The BPC stamp is what makes those funds bigger and more
-          patient than they would otherwise be.
+          <strong className="font-medium text-ink">British Patient Capital</strong>, a BBB subsidiary, and the wider
+          British Business Bank do not write cheques to founders. They commit capital to UK venture and growth-equity
+          managers and co-invest alongside them. Balderton, Northzone, Octopus and Plural all appear in the atlas
+          above, and they back companies on their normal terms. What the BPC commitment changes is the size and the
+          patience of the fund sitting behind those terms.
         </p>
         <p>
           The <strong className="font-medium text-ink">Mansion House Accord (2023)</strong> and{' '}
           <strong className="font-medium text-ink">Mansion House Compact (2024–25)</strong> extend the same logic to
-          UK pension capital: DC schemes have publicly committed a share of assets to UK private markets, routed via
-          fund managers (including the British Growth Partnership) rather than directly. Founders don&rsquo;t apply to
-          Mansion House — they raise from a fund that has Mansion House money inside it.
+          UK pension capital: DC schemes have publicly committed a share of assets to UK private markets, routed
+          through fund managers such as the British Growth Partnership. There is no Mansion House application to make.
+          Founders raise from a fund that already holds Mansion House money.
         </p>
         <p>
-          <strong className="font-medium text-ink">Practical implication for founders:</strong> when a UK VC tells you
-          its LP base includes BBB / BPC / Mansion House signatories, that&rsquo;s typically a positive signal on fund
-          stability and follow-on capacity — not a separate channel you can apply to.
+          <strong className="font-medium text-ink">What this means in practice:</strong> when a UK VC tells you its LP
+          base includes BBB, BPC or Mansion House signatories, read it as a signal about that fund&rsquo;s stability
+          and its capacity to follow on. There is no separate channel behind it for you to apply to.
         </p>
       </div>
     </div>

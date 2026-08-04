@@ -3,12 +3,12 @@ import type { Sector } from './types';
 export const sectors: Sector[] = [
   {
     id: 'ai', number: '01', icon: '∆', name: 'Artificial Intelligence',
-    description: 'From frontier model labs to applied vertical AI. Backed by Innovate UK BridgeAI, ARIA\'s Mathematics for Safe AI programme, and dedicated VCs like Air Street and Plural.',
+    description: 'Covers frontier model labs through to applied vertical AI. Money comes from Innovate UK BridgeAI, ARIA\'s Mathematics for Safe AI programme, and VCs like Air Street and Plural.',
     rangeLabel: '£100K – £25M', leadFunders: 'UKRI · ARIA', isPriority: true,
   },
   {
     id: 'robotics', number: '02', icon: '⌬', name: 'Robotics & Automation',
-    description: 'Made Smarter Innovation, ARIA\'s Smarter Robot Bodies and Robot Dexterity programmes, and the Robotics Growth Partnership.',
+    description: 'Funded through Made Smarter Innovation, ARIA\'s Smarter Robot Bodies and Robot Dexterity programmes, and the Robotics Growth Partnership.',
     rangeLabel: '£50K – £10M', leadFunders: 'Innovate UK', isPriority: true,
   },
   {
@@ -18,12 +18,12 @@ export const sectors: Sector[] = [
   },
   {
     id: 'health', number: '04', icon: '◊', name: 'Medtech',
-    description: 'Devices, implantables and clinical-stage therapeutics. Grants run to £50M+ for late-stage trials via Biomedical Catalyst and Innovation Loans.',
+    description: 'Covers devices, implantables and clinical-stage therapeutics. Grants run to £50M+ for late-stage trials through Biomedical Catalyst and Innovation Loans.',
     rangeLabel: '£100K – £50M', leadFunders: 'Innovate UK · MRC',
   },
   {
     id: 'space', number: '05', icon: '↑', name: 'Space Technology',
-    description: 'UKSA grants, ESA BIC UK incubation, and the UKI2S Seed Fund for upstream and downstream space ventures.',
+    description: 'UKSA grants, ESA BIC UK incubation and the UKI2S Seed Fund all back upstream and downstream space ventures.',
     rangeLabel: '£100K – £5M', leadFunders: 'UKSA · ESA', isPriority: true,
   },
   {

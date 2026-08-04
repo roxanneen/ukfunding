@@ -5,10 +5,10 @@ export default function Insights() {
     <section className="section-frame">
       <div className="mb-12 flex max-w-[780px] flex-col gap-4">
         <h2 className="section-em text-display font-medium">
-          What the funding data <em>actually says</em>.
+          What the funding data <em>says</em>.
         </h2>
         <p className="max-w-[640px] text-[16px] leading-[1.55] text-ink-mute">
-          Three uncomfortable truths the launch announcements rarely make. Each links to a UK government source.
+          Three findings the launch announcements tend to leave out. Each one links to a UK government source.
         </p>
       </div>
 

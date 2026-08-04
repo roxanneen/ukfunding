@@ -2,7 +2,7 @@ import type { StackStage } from './types';
 
 export const capitalStack: StackStage[] = [
   {
-    step: 'STEP 01 — VALIDATE',
+    step: 'STEP 01 · VALIDATE',
     name: 'Idea & prototype',
     range: '£0 – £100K · grant + talent',
     schemes: [
@@ -14,7 +14,7 @@ export const capitalStack: StackStage[] = [
     barWidth: '18%',
   },
   {
-    step: 'STEP 02 — INCORPORATE',
+    step: 'STEP 02 · INCORPORATE',
     name: 'Pre-seed',
     range: '£100K – £500K · SEIS + angels',
     schemes: [
@@ -26,7 +26,7 @@ export const capitalStack: StackStage[] = [
     barWidth: '32%',
   },
   {
-    step: 'STEP 03 — BUILD',
+    step: 'STEP 03 · BUILD',
     name: 'Seed',
     range: '£500K – £3M · EIS + seed VCs',
     schemes: [
@@ -38,7 +38,7 @@ export const capitalStack: StackStage[] = [
     barWidth: '55%',
   },
   {
-    step: 'STEP 04 — SCALE',
+    step: 'STEP 04 · SCALE',
     name: 'Series A',
     range: '£3M – £15M · institutional VC',
     schemes: [
@@ -50,7 +50,7 @@ export const capitalStack: StackStage[] = [
     barWidth: '78%',
   },
   {
-    step: 'STEP 05 — GROW',
+    step: 'STEP 05 · GROW',
     name: 'Series B+',
     range: '£15M – £50M+ · growth equity',
     schemes: [

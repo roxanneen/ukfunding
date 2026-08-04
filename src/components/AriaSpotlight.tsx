@@ -11,20 +11,20 @@ export default function AriaSpotlight() {
           <em>ARIA</em>
         </div>
         <p className="max-w-[340px] font-sans text-[17px] leading-[1.4] text-ink">
-          The British DARPA. £800m+ over five years on high-risk, high-reward science.
+          Britain&rsquo;s answer to DARPA, with more than £800m over five years for science that might not work.
         </p>
       </div>
 
       <div>
         <p className="mb-3.5 text-[14px] leading-[1.6] text-ink-mute">
           <strong className="font-medium text-ink">Advanced Research + Invention Agency.</strong> Spun out of UKRI in
-          2023, ARIA backs frontier research that traditional grant bodies won&rsquo;t touch. Programmes are problem-led,
-          multi-year, and cross-institutional — funding small teams of researchers in adjacent fields towards a single
-          ambitious goal.
+          2023, ARIA backs frontier research that traditional grant bodies turn down. Its programmes are problem-led
+          and run for years across several institutions at once, funding small teams in adjacent fields who are
+          working towards one ambitious goal.
         </p>
         <p className="mb-3.5 text-[14px] leading-[1.6] text-ink-mute">
-          Funding is structured as programme contracts, not grants. Eligibility is broad: universities, startups,
-          individuals. Total deployable across opportunity spaces is currently{' '}
+          Funding takes the form of a programme contract, which is a different instrument from a grant. Universities,
+          startups and individuals can all hold one. Total deployable across opportunity spaces is currently{' '}
           <strong className="font-medium text-ink">£800m+ over the parliament term</strong>, with individual programmes
           ranging from <strong className="font-medium text-ink">£15M to £80M</strong> over multi-year periods.
         </p>

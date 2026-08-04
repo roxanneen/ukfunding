@@ -8,8 +8,8 @@ export default function Sectors() {
           Where the <em>policy money</em> is, <span className="block">by sector.</span>
         </h2>
         <p className="max-w-[640px] text-[16px] leading-[1.55] text-ink-mute">
-          UK industrial strategy concentrates non-dilutive capital into a handful of frontier areas. These are the six
-          with the most distinct, named funding pathways.
+          UK industrial strategy pushes non-dilutive capital towards a small number of frontier areas. These six have
+          the clearest named funding pathways.
         </p>
       </div>
 
