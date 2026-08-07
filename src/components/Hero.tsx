@@ -31,7 +31,7 @@ export default function Hero() {
         </div>
 
         <h1 className="section-em mb-7 max-w-[860px] text-display-xl font-medium text-ink">
-          Where <em>British innovation</em> gets its money.
+          The capital infrastructure of <em>British innovation</em>.
         </h1>
 
         <p className="mb-10 max-w-[620px] text-[19px] leading-[1.5] text-ink-mute">

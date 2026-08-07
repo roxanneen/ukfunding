@@ -63,7 +63,7 @@ export default function OpenGraphImage() {
             Every pound, mapped.
           </div>
           <div style={{ fontSize: '26px', lineHeight: 1.4, color: '#8a8884', marginTop: '28px', maxWidth: '900px' }}>
-            Where British innovation gets its money. 58+ schemes, 9 regions, £2.8B deployable.
+            The capital infrastructure of British innovation. 58+ schemes, 9 regions, £2.8B deployable.
           </div>
         </div>
 

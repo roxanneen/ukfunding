@@ -35,7 +35,7 @@ export default function CapitalStack() {
                 idx < capitalStack.length - 1 ? 'lg:border-r' : ''
               } sm:border-b lg:border-b-0`}
             >
-              <div className="mb-3 font-mono text-[11px] tracking-[0.18em] text-accent">{stage.step}</div>
+              <div className="mb-3 font-mono text-[11px] tracking-[0.06em] text-accent">{stage.step}</div>
               <div className="mb-1.5 font-sans text-[20px] font-medium leading-[1.1] tracking-[-0.01em]">
                 {stage.name}
               </div>

@@ -195,7 +195,7 @@ function ResultsPanel({
     <div className="flex flex-col bg-bg p-8 lg:p-12">
       <div className="mb-6 flex items-baseline justify-between border-b border-line pb-4">
         <div className="font-sans text-[24px] font-medium tabular-nums text-ink">
-          {done ? results.length : '—'}{' '}
+          {done ? results.length : '…'}{' '}
           <span className="ml-1.5 font-mono text-[13px] tracking-[0.1em] text-ink-mute">SCHEMES</span>
         </div>
         <div className="font-mono text-label uppercase text-ink-mute">SHORTLIST</div>
