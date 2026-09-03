@@ -1,5 +1,7 @@
 import AskAI from './AskAI';
 import YearStamp from './YearStamp';
+import { regions } from '@/data/regions';
+import { sectorPages } from '@/data/sectorPages';
 
 // Absolute hrefs so the Sections column works from sub-pages too (e.g. /legal).
 const sectionLinks = [
@@ -32,6 +34,27 @@ export default function Footer() {
   return (
     <footer className="border-t border-line bg-bg">
       <AskAI />
+
+      {/* Directory block. Keeps every hub one click from anywhere, so scheme
+          pages sit at crawl depth 2 via their sector and region hubs. */}
+      <div className="mx-auto max-w-[1440px] border-t border-line px-5 pb-8 pt-10 md:px-8 md:pt-12">
+        <h5 className="mb-4 font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-ink-mute">
+          Browse the atlas
+        </h5>
+        <div className="flex flex-wrap gap-x-4 gap-y-2.5">
+          <DirLink href="/deadlines">Deadlines</DirLink>
+          {sectorPages.map((s) => (
+            <DirLink key={s.slug} href={`/sector/${s.slug}`}>
+              {s.title}
+            </DirLink>
+          ))}
+          {regions.map((r) => (
+            <DirLink key={r.id} href={`/region/${r.id}`}>
+              {r.name}
+            </DirLink>
+          ))}
+        </div>
+      </div>
 
       <div className="mx-auto grid max-w-[1440px] gap-10 border-t border-line px-5 pb-8 pt-10 sm:grid-cols-3 md:gap-12 md:px-8 md:pb-8 md:pt-12">
         <FooterCol title="Sections" links={sectionLinks} />
@@ -71,6 +94,17 @@ export default function Footer() {
         </div>
       </div>
     </footer>
+  );
+}
+
+function DirLink({ href, children }: { href: string; children: React.ReactNode }) {
+  return (
+    <a
+      href={href}
+      className="text-[13px] text-ink-mute transition-colors hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+    >
+      {children}
+    </a>
   );
 }
 

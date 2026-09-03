@@ -18,6 +18,7 @@ export const privateFirms: PrivateFirm[] = [
   { name: 'Air Street Capital', category: 'vc_seed', ticketLabel: '£150K–£1M', description: 'AI-first. Nathan Benaich. Pre-seed/seed.' },
   { name: 'Ada Ventures', category: 'vc_seed', ticketLabel: '£100K–£800K', description: 'Backs overlooked founders. Pre-seed.' },
   { name: 'Concept Ventures', category: 'vc_seed', ticketLabel: '£200K–£1M', description: "UK's largest dedicated pre-seed fund." },
+  { name: 'Unruly Capital', category: 'vc_seed', ticketLabel: '$270K–$850K', description: 'Stefano Bernardi. Thesis-led pre-seed. Bio, climate, industrial, frontier.' },
 
   // Accelerators
   { name: 'Entrepreneur First', category: 'accelerator', ticketLabel: '£100K · 8%', description: '6-month talent programme. Pre-team founders.' },

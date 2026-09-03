@@ -252,7 +252,7 @@ function MobileCard({ scheme, closed }: { scheme: Scheme; closed?: boolean }) {
           >
             {scheme.name}
           </div>
-          <div className="mt-1 font-mono text-[12px] text-ink-mute">{scheme.body}</div>
+          <div className="mt-1 font-mono text-[12px] text-ink-mute">{scheme.funder}</div>
         </div>
         {closed ? (
           <span className="type-tag shrink-0" style={{ borderColor: 'var(--warn)', color: 'var(--warn)' }}>
@@ -293,7 +293,7 @@ function Row({ scheme, closed }: { scheme: Scheme; closed?: boolean }) {
         <div className={`text-[14px] font-medium ${closed ? 'text-ink-mute line-through decoration-from-font' : 'text-ink'}`}>
           {scheme.name}
         </div>
-        <div className="mt-0.5 font-mono text-[12px] text-ink-mute">{scheme.body}</div>
+        <div className="mt-0.5 font-mono text-[12px] text-ink-mute">{scheme.funder}</div>
       </td>
       <td className="px-4 py-4 align-middle md:px-5">
         {closed ? (

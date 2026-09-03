@@ -40,8 +40,8 @@ function buildOpportunitiesJsonLd() {
         '@type': 'MonetaryGrant',
         name: s.name,
         description: s.tag,
-        ...(s.url ? { url: s.url } : {}),
-        funder: { '@type': 'Organization', name: s.body },
+        ...(s.officialUrl ? { url: s.officialUrl } : {}),
+        funder: { '@type': 'Organization', name: s.funder },
         amount: {
           '@type': 'MonetaryAmount',
           currency: 'GBP',

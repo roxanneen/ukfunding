@@ -24,35 +24,90 @@ export type RegionId =
   | 'southeast'
   | 'london';
 
+/**
+ * Where a scheme can be applied for. 'all' means UK-wide, and saves listing
+ * every region on the ~60% of schemes that are national.
+ */
+export type RegionScope = 'all' | RegionId[];
+
 // ---------------------------------------------------------------------------
 // Scheme — a single funding scheme (public or private)
+//
+// One record, two layers:
+//
+//   Core      Powers the homepage matchmaker, opportunities table and region
+//             map. Every scheme carries these.
+//   Editorial Powers /funding/[slug]. Optional on purpose: a scheme without
+//             hand-checked eligibility and rejection content must not get a
+//             published page. See hasDetail() in src/lib/schemes.ts.
 // ---------------------------------------------------------------------------
 export interface Scheme {
+  // --- identity ---
+  /** Canonical slug. Drives /funding/[slug]. Lowercase, hyphenated, no dates. */
+  slug: string;
   /** Display name */
   name: string;
   /** Administering body or fund manager */
-  body: string;
+  funder: string;
+
+  // --- classification (drives filtering) ---
+  /** Instrument type */
+  type: SchemeType;
+  /** Stages this scheme is relevant to */
+  stages: Stage[];
+  /** Normalised sectors. Drives the matchmaker and the six /sector pages. */
+  sectors: SectorId[];
+  /** Where it applies. Drives the nine /region pages. */
+  regions: RegionScope;
+  /** Raise bands this scheme fits */
+  amounts: AmountBand[];
+  /**
+   * Richer free-text sector labels from the source data (healthtech, agritech,
+   * games...). Shown as chips and used in page copy. `sectors` above stays the
+   * normalised vocabulary so filtering has a fixed set to work against.
+   */
+  sectorTags: string[];
+
+  // --- money ---
+  /** Lower bound of the ticket, in GBP. 0 where not meaningful. */
+  ticketMin: number;
+  /** Upper bound of the ticket, in GBP. 0 where not meaningful. */
+  ticketMax: number;
   /** Human-readable amount label (e.g. "£25K–£500K" or "~16.2% effective") */
   amountLabel: string;
   /** Numeric amount ceiling for sorting (in GBP). Use 0 for non-monetary. */
   amountCeiling: number;
-  /** Short tag shown under the name (e.g. "Grant · National") */
-  tag: string;
-  /** Instrument type — used for filtering */
-  type: SchemeType;
-  /** Stages this scheme is relevant to */
-  stages: Stage[];
-  /** Sectors this scheme targets */
-  sectors: SectorId[];
-  /** Raise bands this scheme fits */
-  amounts: AmountBand[];
+
+  // --- deadline ---
   /** Deadline display string (e.g. "14 May 2026", "Rolling", "Evergreen") */
   deadline: string;
   /** Deadline as ISO date string for sorting. null = evergreen/rolling. */
   deadlineDate: string | null;
+
+  // --- display ---
+  /** Short tag shown under the name (e.g. "Grant · National") */
+  tag: string;
   /** Official URL — links to the scheme's own page */
-  url?: string;
+  officialUrl?: string;
+
+  // --- editorial layer (optional until hand-checked) ---
+  /** e.g. "1 in 9 applications funded" */
+  successRate?: string;
+  /** Plain-English "can you apply?" bullets */
+  eligibility?: string[];
+  /** Numbered steps to apply */
+  howToApply?: string[];
+  /** Why applications get turned down. The editorial differentiator. */
+  commonRejections?: string[];
+  /** Slugs of related schemes, for internal linking */
+  relatedSchemes?: string[];
+  /** ISO date the figures were last checked against the official source */
+  lastVerified?: string;
 }
+
+/** A scheme carrying enough checked editorial content to publish a page. */
+export type SchemeWithDetail = Scheme &
+  Required<Pick<Scheme, 'eligibility' | 'howToApply' | 'commonRejections' | 'lastVerified'>>;
 
 // ---------------------------------------------------------------------------
 // Region — a UK region with local funding context
