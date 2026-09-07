@@ -3,9 +3,10 @@ import Link from 'next/link';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import Newsletter from '@/components/Newsletter';
+import SchemeList from '@/components/SchemeList';
 import { schemes } from '@/data/schemes';
 import type { Scheme } from '@/data/types';
-import { formatTicket, hasDetail } from '@/lib/schemes';
+import { formatTicket, hasDetail, isOpen } from '@/lib/schemes';
 
 const SITE_URL = 'https://ukfunding.io';
 
@@ -33,7 +34,11 @@ function daysLeft(iso: string): number {
 export default function DeadlinesPage() {
   const now = new Date();
 
-  const dated = schemes
+  // Paused and closed schemes stay in the atlas but never sit in a deadline
+  // table, because a countdown next to a dead scheme is worse than no listing.
+  const open = schemes.filter(isOpen);
+
+  const dated = open
     .filter((s): s is Scheme & { deadlineDate: string } => Boolean(s.deadlineDate))
     .map((s) => ({ s, left: daysLeft(s.deadlineDate) }))
     .filter((x) => x.left >= 0)
@@ -41,7 +46,8 @@ export default function DeadlinesPage() {
 
   const closingSoon = dated.filter((x) => x.left <= 30);
   const later = dated.filter((x) => x.left > 30);
-  const rolling = schemes.filter((s) => !s.deadlineDate);
+  const rolling = open.filter((s) => !s.deadlineDate);
+  const inactive = schemes.filter((s) => !isOpen(s));
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -99,6 +105,16 @@ export default function DeadlinesPage() {
           </p>
           <DeadlineTable rows={rolling.map((s) => ({ s, left: -1 }))} showCountdown={false} />
         </section>
+        {inactive.length > 0 && (
+          <section className="mb-12">
+            <h2 className="mb-4 font-sans text-[21px] font-medium text-ink">Paused or closed</h2>
+            <p className="mb-4 text-[15px] text-ink-mute">
+              Still listed because people search for these by name. None of them is taking
+              applications.
+            </p>
+            <SchemeList schemes={inactive} />
+          </section>
+        )}
       </main>
 
       <Footer />

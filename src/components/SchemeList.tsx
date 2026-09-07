@@ -25,8 +25,18 @@ export default function SchemeList({
         const meta = `${s.funder} · ${formatTicket(s.ticketMin, s.ticketMax)} · ${s.deadline}`;
         const inner = (
           <>
-            <div className="font-sans text-[15px] font-medium leading-[1.25] text-ink">{s.name}</div>
+            <div className="flex items-start gap-2">
+              <div className="font-sans text-[15px] font-medium leading-[1.25] text-ink">{s.name}</div>
+              {s.status && (
+                <span className="mt-[2px] shrink-0 border border-line-strong px-1.5 py-[1px] font-mono text-[9px] uppercase tracking-[0.1em] text-ink-faint">
+                  {s.status}
+                </span>
+              )}
+            </div>
             <div className="mt-1.5 font-mono text-[11px] text-ink-mute">{meta}</div>
+            {s.statusNote && (
+              <div className="mt-1.5 text-[12px] leading-[1.45] text-ink-faint">{s.statusNote}</div>
+            )}
           </>
         );
         return (

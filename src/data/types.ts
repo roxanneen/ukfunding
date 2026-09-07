@@ -89,6 +89,15 @@ export interface Scheme {
   tag: string;
   /** Official URL — links to the scheme's own page */
   officialUrl?: string;
+  /**
+   * Whether the scheme is actually taking applications. Absent means open.
+   * A paused or closed scheme stays in the atlas, because people search for it
+   * by name and deserve to learn it has stopped, but it is kept out of the
+   * deadline tables and flagged wherever it is listed.
+   */
+  status?: 'paused' | 'closed';
+  /** One line on why it is paused or closed. Shown next to the status. */
+  statusNote?: string;
 
   // --- editorial layer (optional until hand-checked) ---
   /** e.g. "1 in 9 applications funded" */

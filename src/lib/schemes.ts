@@ -126,6 +126,11 @@ export function formatTicket(min: number, max: number): string {
   return `${formatGbp(min)}–${formatGbp(max)}`;
 }
 
+/** Taking applications right now. */
+export function isOpen(s: Scheme): boolean {
+  return !s.status;
+}
+
 /** True when a scheme has enough checked editorial content to publish a page. */
 export function hasDetail(s: Scheme): s is SchemeWithDetail {
   return Boolean(
