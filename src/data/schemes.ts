@@ -4,7 +4,7 @@ import type { Scheme } from './types';
 // opportunities table, the region map and the sector/region/deadline pages.
 // The editorial layer is added per scheme as each one is verified against its
 // official source; hasDetail() keeps unverified schemes off /funding/[slug].
-export const schemes: Scheme[] = [
+const allSchemes: Scheme[] = [
   {
     slug: 'innovate-uk-smart-grant',
     name: 'Innovate UK Smart Grant',
@@ -1066,6 +1066,7 @@ export const schemes: Scheme[] = [
     deadline: 'Rolling',
     deadlineDate: null,
     tag: 'Grant · National',
+    provisional: true,
     officialUrl: 'https://eic.ec.europa.eu/eic-funding-opportunities/accelerator_en',
     successRate: '~5–7% of full applications funded',
   },
@@ -1086,6 +1087,7 @@ export const schemes: Scheme[] = [
     deadline: '1 May 2026',
     deadlineDate: '2026-05-01',
     tag: 'Grant · National',
+    provisional: true,
     officialUrl: 'https://eic.ec.europa.eu/eic-funding-opportunities/pathfinder_en',
     successRate: '~5–8%',
   },
@@ -1106,6 +1108,7 @@ export const schemes: Scheme[] = [
     deadline: '1 Sept 2026',
     deadlineDate: '2026-09-01',
     tag: 'Grant · National',
+    provisional: true,
     officialUrl: 'https://eic.ec.europa.eu/eic-funding-opportunities/transition_en',
     successRate: '~10–15%',
   },
@@ -1126,6 +1129,7 @@ export const schemes: Scheme[] = [
     deadline: '1 Sept 2026',
     deadlineDate: '2026-09-01',
     tag: 'Grant · National',
+    provisional: true,
     officialUrl: 'https://www.eurekanetwork.org/programmes/eurostars/',
     successRate: '~20–25% of submitted projects',
   },
@@ -1146,6 +1150,7 @@ export const schemes: Scheme[] = [
     deadline: 'Rolling',
     deadlineDate: null,
     tag: 'Equity · Southwest',
+    provisional: true,
     officialUrl: 'https://www.british-business-bank.co.uk/finance-options/nations-and-regions-investment-funds/south-west-investment-fund',
   },
   {
@@ -1165,6 +1170,7 @@ export const schemes: Scheme[] = [
     deadline: 'Rolling',
     deadlineDate: null,
     tag: 'Equity · Scotland',
+    provisional: true,
     officialUrl: 'https://www.british-business-bank.co.uk/finance-options/nations-and-regions-investment-funds/investment-fund-for-scotland',
   },
   {
@@ -1184,6 +1190,7 @@ export const schemes: Scheme[] = [
     deadline: 'Rolling',
     deadlineDate: null,
     tag: 'Equity · Wales',
+    provisional: true,
     officialUrl: 'https://www.british-business-bank.co.uk/finance-options/nations-and-regions-investment-funds/investment-fund-for-wales',
   },
   {
@@ -1203,6 +1210,7 @@ export const schemes: Scheme[] = [
     deadline: 'Rolling',
     deadlineDate: null,
     tag: 'Equity · Ni',
+    provisional: true,
     officialUrl: 'https://www.british-business-bank.co.uk/finance-options/nations-and-regions-investment-funds/investment-fund-for-northern-ireland',
   },
   {
@@ -1222,6 +1230,7 @@ export const schemes: Scheme[] = [
     deadline: 'Rolling',
     deadlineDate: null,
     tag: 'Equity · Midlands',
+    provisional: true,
     officialUrl: 'https://www.british-business-bank.co.uk/finance-options/nations-and-regions-investment-funds/midlands-engine-investment-fund-ii',
   },
   {
@@ -1241,6 +1250,7 @@ export const schemes: Scheme[] = [
     deadline: 'Rolling',
     deadlineDate: null,
     tag: 'Equity · East/Southeast',
+    provisional: true,
     officialUrl: 'https://www.british-business-bank.co.uk/finance-options/nations-and-regions-investment-funds',
   },
   {
@@ -1260,6 +1270,7 @@ export const schemes: Scheme[] = [
     deadline: '1 Mar 2030',
     deadlineDate: '2030-03-01',
     tag: 'Loan · National',
+    provisional: true,
     officialUrl: 'https://www.british-business-bank.co.uk/finance-options/growth-guarantee-scheme',
   },
   {
@@ -1279,6 +1290,7 @@ export const schemes: Scheme[] = [
     deadline: 'Evergreen',
     deadlineDate: null,
     tag: 'Loan · National',
+    provisional: true,
     officialUrl: 'https://www.innovationbanking.hsbc.com',
   },
   {
@@ -1298,6 +1310,7 @@ export const schemes: Scheme[] = [
     deadline: 'Evergreen',
     deadlineDate: null,
     tag: 'Loan · National',
+    provisional: true,
     officialUrl: 'https://www.weareuncapped.com',
   },
   {
@@ -1317,6 +1330,7 @@ export const schemes: Scheme[] = [
     deadline: 'Rolling',
     deadlineDate: null,
     tag: 'Loan · National',
+    provisional: true,
     officialUrl: 'https://www.british-business-bank.co.uk',
   },
   {
@@ -1336,6 +1350,7 @@ export const schemes: Scheme[] = [
     deadline: 'Evergreen',
     deadlineDate: null,
     tag: 'Loan · National',
+    provisional: true,
   },
   {
     slug: 'patent-box',
@@ -1354,6 +1369,7 @@ export const schemes: Scheme[] = [
     deadline: 'Evergreen',
     deadlineDate: null,
     tag: 'Tax relief · National',
+    provisional: true,
     officialUrl: 'https://www.gov.uk/guidance/corporation-tax-the-patent-box',
   },
   {
@@ -1373,6 +1389,7 @@ export const schemes: Scheme[] = [
     deadline: 'Evergreen',
     deadlineDate: null,
     tag: 'Tax relief · National',
+    provisional: true,
     officialUrl: 'https://www.gov.uk/guidance/creative-industry-tax-reliefs-for-corporation-tax',
   },
   {
@@ -1392,6 +1409,7 @@ export const schemes: Scheme[] = [
     deadline: 'Rolling',
     deadlineDate: null,
     tag: 'Grant · Ni',
+    provisional: true,
     officialUrl: 'https://www.investni.com/support-for-business',
   },
   {
@@ -1411,6 +1429,7 @@ export const schemes: Scheme[] = [
     deadline: 'Rolling',
     deadlineDate: null,
     tag: 'Grant · Scotland',
+    provisional: true,
     officialUrl: 'https://www.scottish-enterprise.com/support-for-businesses/funding-and-grants',
   },
   {
@@ -1430,6 +1449,7 @@ export const schemes: Scheme[] = [
     deadline: 'Rolling',
     deadlineDate: null,
     tag: 'Grant · Scotland',
+    provisional: true,
     officialUrl: 'https://www.hie.co.uk',
   },
   {
@@ -1449,6 +1469,7 @@ export const schemes: Scheme[] = [
     deadline: 'Rolling',
     deadlineDate: null,
     tag: 'Loan · Wales',
+    provisional: true,
     officialUrl: 'https://developmentbank.wales',
   },
   {
@@ -1468,6 +1489,7 @@ export const schemes: Scheme[] = [
     deadline: 'Rolling',
     deadlineDate: null,
     tag: 'Grant · Wales',
+    provisional: true,
     officialUrl: 'https://businesswales.gov.wales',
   },
   {
@@ -1487,6 +1509,7 @@ export const schemes: Scheme[] = [
     deadline: 'Rolling',
     deadlineDate: null,
     tag: 'Grant · National',
+    provisional: true,
     officialUrl: 'https://www.ofgem.gov.uk/energy-data-and-innovation/innovation/strategic-innovation-fund-sif',
   },
   {
@@ -1506,6 +1529,7 @@ export const schemes: Scheme[] = [
     deadline: 'Rolling',
     deadlineDate: null,
     tag: 'Grant · National',
+    provisional: true,
     officialUrl: 'https://www.gov.uk/government/collections/net-zero-innovation-portfolio',
   },
   {
@@ -1525,6 +1549,7 @@ export const schemes: Scheme[] = [
     deadline: 'Rolling',
     deadlineDate: null,
     tag: 'Grant · National',
+    provisional: true,
     officialUrl: 'https://www.ukri.org/opportunity/energy-catalyst-round/',
   },
   {
@@ -1544,6 +1569,7 @@ export const schemes: Scheme[] = [
     deadline: 'Rolling',
     deadlineDate: null,
     tag: 'Grant · National',
+    provisional: true,
     officialUrl: 'https://www.gov.uk/guidance/farming-innovation-programme-what-funding-is-available',
   },
   {
@@ -1563,6 +1589,7 @@ export const schemes: Scheme[] = [
     deadline: 'Rolling',
     deadlineDate: null,
     tag: 'Grant · National',
+    provisional: true,
     officialUrl: 'https://www.gov.uk/government/organisations/uk-shipping-office-for-reducing-emissions',
   },
   {
@@ -1582,6 +1609,7 @@ export const schemes: Scheme[] = [
     deadline: 'Rolling',
     deadlineDate: null,
     tag: 'Grant · National',
+    provisional: true,
     officialUrl: 'https://ukgamesfund.com',
   },
   {
@@ -1601,6 +1629,7 @@ export const schemes: Scheme[] = [
     deadline: 'Rolling',
     deadlineDate: null,
     tag: 'Grant · National',
+    provisional: true,
     officialUrl: 'https://www.ukri.org/opportunity/create-growth-programme/',
   },
   {
@@ -1620,6 +1649,7 @@ export const schemes: Scheme[] = [
     deadline: 'Evergreen',
     deadlineDate: null,
     tag: 'Equity · National',
+    provisional: true,
     officialUrl: 'https://www.nationalwealthfund.uk',
   },
   {
@@ -1639,6 +1669,7 @@ export const schemes: Scheme[] = [
     deadline: 'Evergreen',
     deadlineDate: null,
     tag: 'Equity · National',
+    provisional: true,
     officialUrl: 'https://parkwalkadvisors.com',
   },
   {
@@ -1658,6 +1689,7 @@ export const schemes: Scheme[] = [
     deadline: 'Rolling',
     deadlineDate: null,
     tag: 'Grant · National',
+    provisional: true,
     officialUrl: 'https://www.santander.co.uk/business/support-for-universities',
   },
   {
@@ -1677,6 +1709,7 @@ export const schemes: Scheme[] = [
     deadline: 'Rolling',
     deadlineDate: null,
     tag: 'Loan · National',
+    provisional: true,
     officialUrl: 'https://bigissueinvest.com',
   },
   {
@@ -1696,6 +1729,7 @@ export const schemes: Scheme[] = [
     deadline: 'Rolling',
     deadlineDate: null,
     tag: 'Grant · National',
+    provisional: true,
     officialUrl: 'https://www.tnlcommunityfund.org.uk',
   },
   {
@@ -1715,6 +1749,7 @@ export const schemes: Scheme[] = [
     deadline: 'Rolling',
     deadlineDate: null,
     tag: 'Grant · National',
+    provisional: true,
     officialUrl: 'https://www.crowncommercial.gov.uk/agreements/RM1557.15',
   },
   {
@@ -1734,6 +1769,7 @@ export const schemes: Scheme[] = [
     deadline: 'Rolling',
     deadlineDate: null,
     tag: 'Grant · National',
+    provisional: true,
     officialUrl: 'https://www.ukri.org/councils/innovate-uk/',
   },
   {
@@ -1753,6 +1789,7 @@ export const schemes: Scheme[] = [
     deadline: 'Evergreen',
     deadlineDate: null,
     tag: 'Equity · National',
+    provisional: true,
     officialUrl: 'https://www.british-business-bank.co.uk',
   },
   {
@@ -1772,6 +1809,16 @@ export const schemes: Scheme[] = [
     deadline: 'Evergreen',
     deadlineDate: null,
     tag: 'Equity · National',
+    provisional: true,
     officialUrl: 'https://www.british-business-bank.co.uk',
   },
 ];
+
+/**
+ * Schemes cleared for publication. Provisional records stay in this file so the
+ * work is not lost, but they are withheld from the site until each one has been
+ * checked against the funder's own source.
+ */
+export const schemes: Scheme[] = allSchemes.filter((s) => !s.provisional);
+
+export { allSchemes };

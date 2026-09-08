@@ -98,6 +98,13 @@ export interface Scheme {
   status?: 'paused' | 'closed';
   /** One line on why it is paused or closed. Shown next to the status. */
   statusNote?: string;
+  /**
+   * Drafted but not yet checked against the funder's own site. Provisional
+   * records stay in the repo and are excluded from the published `schemes`
+   * export, so nothing unverified reaches the site. Clear the flag as each
+   * scheme is verified.
+   */
+  provisional?: boolean;
 
   // --- editorial layer (optional until hand-checked) ---
   /** e.g. "1 in 9 applications funded" */
